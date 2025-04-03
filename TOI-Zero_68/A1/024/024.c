@@ -19,9 +19,9 @@ int main() {
         } else if (b <= 2000) {
             printf("1300\n");
         } else {
-            printf("1800\n");
+            printf("1700\n");
         }
-    } else {
+    } else {  // a >= 2000
         if (b <= 1500) {
             printf("1000\n");
         } else if (b <= 2000) {
