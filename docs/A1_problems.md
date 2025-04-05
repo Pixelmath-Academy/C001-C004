@@ -1,6 +1,7 @@
 # TOI-Zero 68 A1 Problems
 
 ## แนวคิดโจทย์ A1
+ปล. อ่านเป็นแนวทางนะครับ อ้างอิงการอธิบายตามโค้ดตัวอย่างที่ให้ในคอร์ส
 
 ### 001 - String Operations
 โจทย์เกี่ยวกับการจัดการ string ครับ
@@ -10,13 +11,13 @@
 
 แนวคิด:
 ```python
-# รับ input แบบ string
+# รับ input แบบ string na krubb
 first_name, last_name = input().split()
 
 # แสดงผลตามรูปแบบ
 print(f"Hello {first_name} {last_name}")
 
-# ตัด 2 ตัวอักษรแรกของแต่ละชื่อ
+# cut 2 ตัวอักษรแรกของแต่ละชื่อ
 result = first_name[:2] + last_name[:2]
 print(result)
 ```
@@ -25,7 +26,7 @@ print(result)
 โจทย์เกี่ยวกับการแลกเงินเหรียญครับ
 - รับจำนวนเงินมา แล้วแลกเป็นเหรียญ 10, 5, 2, 1 บาท
 - แสดงผลว่าใช้เหรียญแต่ละชนิดกี่เหรียญ
-ใช้การหารและ mod เพื่อคำนวณจำนวนเหรียญแต่ละชนิด
+ใช้การหารและ mod เพื่อคำนวณจำนวนเหรียญแต่ละชนิด คือจริง ๆ จะไม่ใช้ list ก็ได้แหละ
 
 แนวคิด:
 ```python
@@ -76,7 +77,7 @@ for i in range(n):
 แนวคิด:
 ```python
 n = int(input())
-# ใช้ list comprehension สร้างลำดับ
+# ใช้ list comprehension สร้างลำดับได้ ซึ่งง่ายกว่าวนลูปนะงับ
 numbers = [str(i) for i in range(1, n + 1)]
 print(' '.join(numbers))
 ```
@@ -338,7 +339,7 @@ print(result)
 ### 021 - Leap Year Check
 โจทย์เกี่ยวกับการตรวจสอบปีอธิกสุรทิน
 - รับปีมา
-- ตรวจสอบว่าเป็นปีอธิกสุรทินหรือไม่
+- ตรวจสอบว่าเป็นปีอธิกสุรทิน (Leap year) หรือไม่ ใครไม่ทราบเงื่อนไขนี้ลองเสิร์ชดูใน google
 ฝึกการใช้เงื่อนไขและการหาร
 
 แนวคิด:
@@ -358,7 +359,7 @@ print("yes" if is_leap else "no")
 แนวคิด:
 ```python
 day, month = map(int, input().split())
-# ใช้เงื่อนไขหาราศี
+# ใช้ condition
 if (month == 12 and day >= 22) or (month == 1 and day <= 19):
     print("capricorn")
 elif (month == 1 and day >= 20) or (month == 2 and day <= 18):
@@ -369,7 +370,7 @@ elif (month == 1 and day >= 20) or (month == 2 and day <= 18):
 ### 023 - Number Game
 โจทย์เกี่ยวกับเกมตัวเลข
 - รับตัวเลขมา
-- ทำตามกฎเกมที่กำหนด
+- ทำตามกฎเกมที่กำหนดด
 ฝึกการใช้ loop และการคำนวณ
 
 แนวคิด:
