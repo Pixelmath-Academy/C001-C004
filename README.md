@@ -1,6 +1,6 @@
-# TOI-Zero 68 Solutions
+# C001-C004
 
-This repository contains solutions for the TOI-Zero 68 competition problems, Python, C, C++. These solutions are part of the @Pixelmath.
+This repository contains solutions for the TOI-Zero 68 competition problems, Python, C, C++. These solutions are part of the @Pixelmath. Copyright in some ways
 
 ## About PixelGrader
 
