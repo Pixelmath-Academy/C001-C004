@@ -1,3 +1,7 @@
+<img src="https://github.com/user-attachments/assets/1ac78f3b-e5d5-40fa-bbd1-fc39b4fc8822" width="500">
+
+By P'Dew Pixelmath Education
+
 # C001-C004
 
 This repository contains solutions for the TOI-Zero 68 competition problems, Python, C, C++. These solutions are part of the @Pixelmath. Copyright in some ways

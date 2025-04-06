@@ -1,3 +1,7 @@
+<img src="https://github.com/user-attachments/assets/1ac78f3b-e5d5-40fa-bbd1-fc39b4fc8822" width="500">
+
+By P'Dew Pixelmath Education
+
 # TOI-Zero 68 A1 Problems
 
 ## แนวคิดโจทย์ A1
@@ -501,4 +505,220 @@ for c in text:
     else:
         challenge += c
 print(challenge)
+```
+
+### 031 - Array Rotation
+โจทย์เกี่ยวกับการหมุน array
+- รับ array และจำนวนครั้งที่จะหมุน
+- หมุน array ไปทางขวาตามจำนวนที่กำหนด
+ฝึกการจัดการ array และการ rotate
+
+แนวคิด:
+```python
+arr = list(map(int, input().split()))
+k = int(input())  # จำนวนครั้งที่จะหมุน
+n = len(arr)
+k = k % n  # ป้องกันการหมุนเกินความยาว array
+
+# วิธีที่ 1: ใช้ slicing
+rotated = arr[-k:] + arr[:-k]
+
+# วิธีที่ 2: ใช้ deque (ถ้าต้องการประสิทธิภาพที่ดีกว่า)
+from collections import deque
+d = deque(arr)
+d.rotate(k)
+rotated = list(d)
+
+print(' '.join(map(str, rotated)))
+```
+
+### 032 - Binary to Decimal
+โจทย์เกี่ยวกับการแปลงเลขฐาน
+- รับเลขฐานสองเข้ามา
+- แปลงเป็นเลขฐานสิบ
+ฝึกการแปลงเลขฐาน
+
+แนวคิด:
+```python
+binary = input()
+# วิธีที่ 1: ใช้ built-in function
+decimal = int(binary, 2)
+
+# วิธีที่ 2: คำนวณเอง
+decimal = sum(int(bit) * (2 ** i) for i, bit in enumerate(binary[::-1]))
+print(decimal)
+```
+
+### 033 - Character Frequency
+โจทย์เกี่ยวกับการนับความถี่ตัวอักษร
+- รับข้อความมา
+- นับความถี่ของแต่ละตัวอักษร
+ฝึกการใช้ dictionary และการนับ
+
+แนวคิด:
+```python
+text = input().lower()  # แปลงเป็นตัวพิมพ์เล็กทั้งหมด
+freq = {}
+
+# นับความถี่
+for char in text:
+    if char.isalpha():  # เช็คเฉพาะตัวอักษร
+        freq[char] = freq.get(char, 0) + 1
+
+# แสดงผลเรียงตามตัวอักษร
+for char in sorted(freq):
+    print(f"{char}: {freq[char]}")
+```
+
+### 034 - Password Validation
+โจทย์เกี่ยวกับการตรวจสอบรหัสผ่าน
+- รับรหัสผ่านมา
+- ตรวจสอบว่าผ่านเงื่อนไขหรือไม่
+ฝึกการใช้ string methods และ regular expressions
+
+แนวคิด:
+```python
+def validate_password(password):
+    # เช็คความยาว
+    if len(password) < 8:
+        return False
+    
+    # เช็คว่ามีตัวพิมพ์ใหญ่, เล็ก, ตัวเลข
+    has_upper = any(c.isupper() for c in password)
+    has_lower = any(c.islower() for c in password)
+    has_digit = any(c.isdigit() for c in password)
+    
+    return has_upper and has_lower and has_digit
+
+password = input()
+print("yes" if validate_password(password) else "no")
+```
+
+### 035 - Word Count
+โจทย์เกี่ยวกับการนับคำ
+- รับประโยคมา
+- นับจำนวนคำในประโยค
+ฝึกการใช้ string methods และการแยกคำ
+
+แนวคิด:
+```python
+sentence = input()
+# วิธีที่ 1: ใช้ split() แบบง่าย
+words = sentence.split()
+count = len(words)
+
+# วิธีที่ 2: ใช้ regex สำหรับกรณีซับซ้อน
+import re
+words = re.findall(r'\b\w+\b', sentence)
+count = len(words)
+
+print(count)
+```
+
+### 036 - Temperature Conversion
+โจทย์เกี่ยวกับการแปลงอุณหภูมิ
+- รับอุณหภูมิและหน่วย (C หรือ F)
+- แปลงเป็นอีกหน่วย
+ฝึกการคำนวณและการใช้สูตร
+
+แนวคิด:
+```python
+temp, unit = input().split()
+temp = float(temp)
+
+if unit.upper() == 'C':
+    # แปลงเป็น Fahrenheit
+    result = (temp * 9/5) + 32
+    print(f"{result:.2f}F")
+else:
+    # แปลงเป็น Celsius
+    result = (temp - 32) * 5/9
+    print(f"{result:.2f}C")
+```
+
+### 037 - GCD Calculator
+โจทย์เกี่ยวกับการหา GCD
+- รับตัวเลข 2 ตัว
+- หา GCD (Greatest Common Divisor)
+ฝึกการใช้ recursive function และ algorithm
+
+แนวคิด:
+```python
+def gcd(a, b):
+    # ใช้ Euclidean algorithm
+    while b:
+        a, b = b, a % b
+    return a
+
+# รับ input
+a, b = map(int, input().split())
+result = gcd(a, b)
+print(result)
+```
+
+### 038 - Morse Code
+โจทย์เกี่ยวกับรหัสมอร์ส
+- รับข้อความภาษาอังกฤษ
+- แปลงเป็นรหัสมอร์ส
+ฝึกการใช้ dictionary และการแปลงข้อความ
+
+แนวคิด:
+```python
+morse_dict = {
+    'A': '.-', 'B': '-...', 'C': '-.-.', 
+    # ... (เพิ่ม dictionary ตามต้องการ)
+}
+
+text = input().upper()
+morse = []
+
+for char in text:
+    if char.isalpha():
+        morse.append(morse_dict[char])
+
+print(' '.join(morse))
+```
+
+### 039 - Calendar
+โจทย์เกี่ยวกับปฏิทิน
+- รับเดือนและปี
+- แสดงจำนวนวันในเดือนนั้น
+ฝึกการใช้ conditional statements และการคำนวณ
+
+แนวคิด:
+```python
+def is_leap_year(year):
+    return year % 400 == 0 or (year % 4 == 0 and year % 100 != 0)
+
+month, year = map(int, input().split())
+days_in_month = [0, 31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31]
+
+if month == 2 and is_leap_year(year):
+    print(29)
+else:
+    print(days_in_month[month])
+```
+
+### 040 - Text Analysis
+โจทย์เกี่ยวกับการวิเคราะห์ข้อความ
+- รับข้อความมา
+- วิเคราะห์และแสดงสถิติต่างๆ
+ฝึกการใช้ string methods และการวิเคราะห์ข้อมูล
+
+แนวคิด:
+```python
+text = input()
+
+# วิเคราะห์ข้อความ
+stats = {
+    'chars': len(text),
+    'words': len(text.split()),
+    'upper': sum(1 for c in text if c.isupper()),
+    'lower': sum(1 for c in text if c.islower()),
+    'digits': sum(1 for c in text if c.isdigit())
+}
+
+# แสดงผลสถิติ
+for key, value in stats.items():
+    print(f"{key}: {value}")
 ``` 
