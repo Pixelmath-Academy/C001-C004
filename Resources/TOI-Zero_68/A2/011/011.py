@@ -1,23 +1,11 @@
-from collections import deque
+visited = {}
+ans = []
 
-n = int(input())
-target = int(input())
+for i in range(10):
+    x = int(input())
+    if x not in visited:
+        visited[x] = 1
+        ans.append(x)
 
-# BFS to find shortest path
-visited = set()
-q = deque([(n, 0)])  # (number, moves)
-visited.add(n)
-
-while q:
-    num, moves = q.popleft()
-    
-    if num == target:
-        print(moves)
-        break
-    
-    # Try all possible operations
-    operations = [num + 1, num - 1, num * 2]
-    for next_num in operations:
-        if next_num not in visited and 0 <= next_num <= 100000:
-            visited.add(next_num)
-            q.append((next_num, moves + 1)) 
+for i in range(len(ans)):
+    print(ans[i], end=" ") 

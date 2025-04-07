@@ -1,16 +1,28 @@
-n = int(input())
-nums = list(map(int, input().split()))
+x, a, y, b = input().split()
+k = 0
 
-# Keep track of both max and min product because of negative numbers
-max_so_far = nums[0]
-min_so_far = nums[0]
-result = max_so_far
+# Reverse strings
+a = a[::-1]
+b = b[::-1]
 
-for i in range(1, n):
-    curr = nums[i]
-    temp_max = max(curr, max_so_far * curr, min_so_far * curr)
-    min_so_far = min(curr, max_so_far * curr, min_so_far * curr)
-    max_so_far = temp_max
-    result = max(result, max_so_far)
+# Count matching characters from the end
+while k < 5 and k < len(a) and k < len(b) and a[k] == b[k]:
+    k += 1
 
-print(result) 
+# Determine prize based on conditions
+if x == y and k == 5:
+    print(1000000)
+elif k == 5:
+    print(100000)
+elif k >= 3 and x == y:
+    print(2000)
+elif k >= 2 and x == y:
+    print(1000)
+elif k >= 3:
+    print(200)
+elif k >= 2:
+    print(100)
+elif x == y:
+    print(20)
+else:
+    print(0) 

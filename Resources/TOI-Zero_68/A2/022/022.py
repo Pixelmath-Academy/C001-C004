@@ -1,25 +1,23 @@
-def min_operations(s1, s2):
-    m, n = len(s1), len(s2)
-    dp = [[0] * (n + 1) for _ in range(m + 1)]
-    
-    for i in range(m + 1):
-        dp[i][0] = i
-    for j in range(n + 1):
-        dp[0][j] = j
-    
-    for i in range(1, m + 1):
-        for j in range(1, n + 1):
-            if s1[i-1] == s2[j-1]:
-                dp[i][j] = dp[i-1][j-1]
-            else:
-                dp[i][j] = min(dp[i-1][j],      
-                             dp[i][j-1],      
-                             dp[i-1][j-1]) + 1  
-    
-    return dp[m][n]
+l, n = map(int, input().split())
+bridge = []
 
-s1 = input().strip()
-s2 = input().strip()
-print(min_operations(s1, s2)) 
+for i in range(n):
+    left, right = map(int, input().split())
+    bridge.append((left, 1))
+    bridge.append((right, -1))
 
-#อันนี้เขียนด้วย dynamic programming ในระดับค่ายสอง ;-;
+count = 0
+mx = 0
+bridge.sort()
+
+for i in range(len(bridge)):
+    idx = bridge[i][0]
+    k = bridge[i][1]
+    count += k
+    
+    if i < len(bridge) - 1 and bridge[i+1][0] == idx:
+        continue
+    
+    mx = max(mx, count)
+
+print(mx) 

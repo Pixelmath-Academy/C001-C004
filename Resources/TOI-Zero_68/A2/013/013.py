@@ -1,12 +1,23 @@
-n = int(input())
-nums = list(map(int, input().split()))
+mp = {}
+mp2 = {}
 
-# dp[i] represents length of LIS ending at index i
-dp = [1] * n
+mp['H'] = 5
+mp['O'] = 3
+mp['J'] = 2
 
-for i in range(1, n):
-    for j in range(i):
-        if nums[i] > nums[j]:
-            dp[i] = max(dp[i], dp[j] + 1)
+mp2[('R', 1)] = 12
+mp2[('R', 2)] = 18
+mp2[('R', 3)] = 25
+mp2[('T', 1)] = 15
+mp2[('T', 2)] = 20
+mp2[('T', 3)] = 30
+mp2[('M', 1)] = 10
+mp2[('M', 2)] = 15
+mp2[('M', 3)] = 20
 
-print(max(dp)) 
+a, x, b, y, z = input().split()
+x = int(x)
+y = int(y)
+z = int(z)
+
+print(mp[a] * x + mp2[(b, y)] * z) 

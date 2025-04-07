@@ -1,28 +1,20 @@
-def min_cost_path(grid):
-    n = len(grid)
-    m = len(grid[0])
-    dp = [[float('inf')] * m for _ in range(n)]
-    dp[0][0] = grid[0][0]
-    
-    # Fill first row
-    for j in range(1, m):
-        dp[0][j] = dp[0][j-1] + grid[0][j]
-    
-    # Fill first column
-    for i in range(1, n):
-        dp[i][0] = dp[i-1][0] + grid[i][0]
-    
-    # Fill rest of the dp table
-    for i in range(1, n):
-        for j in range(1, m):
-            dp[i][j] = min(dp[i-1][j], dp[i][j-1]) + grid[i][j]
-    
-    return dp[n-1][m-1]
+n, k = map(int, input().split())
+rb = mn = fr = 0
+a, b, c = map(int, input().split())
 
-n, m = map(int, input().split())
-grid = []
-for _ in range(n):
-    row = list(map(int, input().split()))
-    grid.append(row)
+for _ in range(k):
+    x, y = map(int, input().split())
+    if x % a == 0:
+        rb += y
+    if x % b == 0:
+        mn += y
+    if x % c == 0:
+        fr += y
 
-print(min_cost_path(grid)) 
+mx = max(rb, mn, fr)
+if rb == mx:
+    print("Rabbit", rb)
+if mn == mx:
+    print("Monkey", mn)
+if fr == mx:
+    print("Frog", fr) 
