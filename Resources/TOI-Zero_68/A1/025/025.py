@@ -31,3 +31,4 @@ elif b == "C":
     d = "clubs"
 
 print(f"{c} of {d}")
+

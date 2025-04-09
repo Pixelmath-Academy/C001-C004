@@ -1,18 +1,20 @@
-a, b, c = input().split()
+ans = 0
+cost = {
+    ('S', 'R'): 60,
+    ('S', 'T'): 80,
+    ('M', 'R'): 80,
+    ('M', 'T'): 100,
+    ('L', 'R'): 100,
+    ('L', 'T'): 120
+}
 
-mp = {}
-mp[('S', 'R')] = 60
-mp[('S', 'T')] = 80
-mp[('M', 'R')] = 80
-mp[('M', 'T')] = 100
-mp[('L', 'R')] = 100
-mp[('L', 'T')] = 120
-
-if c != 'N':
-    k = int(input())
-    if c == 'P':
-        print(mp[(a, b)] + 15 * k)
-    else:
-        print(mp[(a, b)] + 10 * k)
+size, types = input().strip().split()
+ans += cost[(size, types)]
+q = [x for x in input().strip().split()]
+if q[0] == 'N':
+    print(ans)
 else:
-    print(mp[(a, b)]) 
+    if(q[0] == 'E'):
+        print(ans + 10*int(q[1]))
+    else:
+        print(ans + 15*int(q[1]))

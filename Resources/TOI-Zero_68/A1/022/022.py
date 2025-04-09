@@ -24,3 +24,5 @@ elif (b == 10 and a >= 24) or (b == 11 and a <= 21):
     print("scorpio")
 elif (b == 11 and a >= 22) or (b == 12 and a <= 21):
     print("sagittarius")
+
+    

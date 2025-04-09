@@ -10,3 +10,5 @@ elif (a == 9 and b >= 21) or a == 10 or a == 11 or (a == 12 and b < 21):
     print("fall")
 else:
     print("winter")
+
+    
