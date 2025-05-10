@@ -1,4 +1,5 @@
-x, a, y, b = input().split()
+x, a = input().split()
+y, b = input().split()
 k = 0
 
 # Reverse strings
