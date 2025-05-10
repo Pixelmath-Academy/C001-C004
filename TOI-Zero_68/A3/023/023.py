@@ -26,3 +26,5 @@ for i in range(1, 15005):
         prime.append(i)
 
 print(count) 
+# TLE in Case 2 7 8 9 10
+# RECOMMENDED C++
