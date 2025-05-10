@@ -1,6 +1,7 @@
 n, m = map(int, input().split())
 a = [[0] * m for _ in range(n)]
-sx, sy, k = map(int, input().split())
+sx, sy = map(int, input().split())
+k = int(input())
 
 for _ in range(k):
     x, y = map(int, input().split())
