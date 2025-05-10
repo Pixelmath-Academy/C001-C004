@@ -1,11 +1,16 @@
 n = int(input())
-p = [0] * (n + 1)
-for i in range(1, n + 1):
-    p[i] = int(input()) + p[i-1]
+arr = list(map(int, input().split()))
 
-k = set()
+prefix = [0] * (n + 1)
+
+for i in range(1, n + 1):
+    prefix[i] = prefix[i - 1] + arr[i - 1]
+
+unique_sums = set()
+
 for i in range(1, n + 1):
     for j in range(i, n + 1):
-        k.add(p[j] - p[i-1])
+        subarray_sum = prefix[j] - prefix[i - 1]
+        unique_sums.add(subarray_sum)
 
-print(len(k)) 
+print(len(unique_sums))
