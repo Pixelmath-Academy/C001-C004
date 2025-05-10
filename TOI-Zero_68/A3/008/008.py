@@ -3,7 +3,9 @@ from collections import defaultdict
 
 n, k = map(int, input().split())
 ans = 0
-a = list(map(int, input().split()))
+a={}
+for i in range (n):
+    a[i]=int(input())
 
 dq = deque()
 count = defaultdict(int)
