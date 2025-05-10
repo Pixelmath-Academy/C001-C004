@@ -1,4 +1,5 @@
-a, b = input().split()
+a = input()
+b = input()
 idxa, idxb = 0, 0
 
 while len(a) < len(b):
