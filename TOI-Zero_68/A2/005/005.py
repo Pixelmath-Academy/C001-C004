@@ -1,34 +1,24 @@
-w, h = map(int, input().split())
-m, n = map(int, input().split())
+data = list(map(int, input().split()))
+w, h = data[0], data[1]
+m, n = data[2], data[3]
 
-x = [0] * (m + 2)
-y = [0] * (n + 2)
-x[0] = 0
-x[m + 1] = w
-y[0] = 0
-y[n + 1] = h
+x = list(map(int, input().split()))
+x = [0] + x + [w]
 
-for i in range(1, m + 1):
-    x[i] = int(input())
-for i in range(1, n + 1):
-    y[i] = int(input())
+y = list(map(int, input().split()))
+y = [0] + y + [h]
 
-widths = []
-heights = []
+x.sort()
+y.sort()
 
-for i in range(m + 1):
-    widths.append(x[i + 1] - x[i])
-for i in range(n + 1):
-    heights.append(y[i + 1] - y[i])
+widths = [x[i+1] - x[i] for i in range(len(x) - 1)]
+heights = [y[i+1] - y[i] for i in range(len(y) - 1)]
 
-areas = []
-for width in widths:
-    for height in heights:
-        areas.append(width * height)
+areas = [w * h for w in widths for h in heights]
 
 areas.sort(reverse=True)
-print(areas[0], end=" ")
-if len(areas) > 1:
-    print(areas[1])
+
+if len(areas) == 1:
+    print(areas[0], areas[0])
 else:
-    print(areas[0]) 
+    print(areas[0], areas[1])
