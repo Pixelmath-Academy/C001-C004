@@ -15,7 +15,8 @@ mp2[('M', 1)] = 10
 mp2[('M', 2)] = 15
 mp2[('M', 3)] = 20
 
-a, x, b, y, z = input().split()
+a, x = input().split()
+b, y, z = input().split()
 x = int(x)
 y = int(y)
 z = int(z)
