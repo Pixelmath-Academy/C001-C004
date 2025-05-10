@@ -1,43 +1,45 @@
 from collections import deque
 
-n, m = map(int, input().split())
-adj = [[] for _ in range(n+1)]
-deg = [[] for _ in range(n+1)]
-
-for _ in range(m):
-    k = int(input())
-    a = set()
-    for _ in range(k):
-        x = int(input())
-        a.add(x)
-    s = int(input())
-    for x in a:
-        adj[x].append(s)
-    deg[s].append(a)
-
-count = 0
-visited = [0] * (n+1)
-q = deque([1])
-
-while q:
-    u = q.popleft()
-    if visited[u]:
-        continue
-    visited[u] = 1
-    count += 1
+def main():
+    n, m = map(int, input().split())
     
-    for v in adj[u]:
-        mn = float('inf')
-        for s in deg[v]:
-            if not s:
-                mn = 0
-                continue
-            if u not in s:
-                continue
-            s.remove(u)
-            mn = min(mn, len(s))
+    adj = [[] for _ in range(n + 1)]
+    deg = [{} for _ in range(n + 1)] 
+    
+    for _ in range(m):
+        parts = list(map(int, input().split()))
+        k = parts[0]
+        a = set(parts[1:k+1])
+        s = parts[k+1]
         
-        if mn == 0:
-            q.append(v)
+        for x in a:
+            adj[x].append(s)
+        
+        if not deg[s]:
+            deg[s] = []
+        deg[s].append(a.copy())
+    
+    visited = [False] * (n + 1)
+    q = deque()
+    q.append(1)
+    visited[1] = True
+    count = 1
+    
+    while q:
+        u = q.popleft()
+        
+        for v in adj[u]:
+            for prereq_set in deg[v]:
+                if u in prereq_set:
+                    prereq_set.remove(u)
+                    if not prereq_set:
+                        if not visited[v]:
+                            visited[v] = True
+                            count += 1
+                            q.append(v)
+                            deg[v].remove(prereq_set)  # No longer need this requirement
+    
+    print(count)
 
-print(count) 
+if __name__ == "__main__":
+    main()
