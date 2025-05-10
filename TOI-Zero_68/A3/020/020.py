@@ -16,3 +16,5 @@ for i in range(x + 1):
                     max_soldiers = max(max_soldiers, i + j + a + b)
 
 print(max_soldiers) 
+# TLE in Case 7
+# RECOMMENDED C++
